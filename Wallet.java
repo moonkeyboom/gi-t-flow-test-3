@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Wallet {
 		private double amount;
 		private double cumulativePurchase;
@@ -16,16 +18,17 @@ public class Wallet {
 
 		public void purchase(double spent) {
 				// ตัดเงิน
-				this.amount -= spent;
+				amount -= spent;
 
 				// เพิ่มยอดใช้จ่ายสะสม
 				cumulativePurchase += spent;
 
 				// คำนวณการสะสมแต้มจากยอดใช้จ่าย
-				point += (int) spent / 50
+				point += (int) spent / 50;
 
 				// เก็บประวัติการใช้จ่าย (optional)
 				history.add("-" + spent);
+				history.add("point +" + point);
     }
 
 		public void usePoint(int point) {
@@ -42,11 +45,11 @@ public class Wallet {
 		}
 
 		public double getCumulativePurchase(){
-			return amount;
+			return cumulativePurchase;
 		}
 
 		public int getPoint(){
-			return amount;
+			return point;
 		}
 		
 		public ArrayList<String> getHistory(){
